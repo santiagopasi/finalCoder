@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin,redirects
 from django.urls import path, include
+from finalCoder import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Altec/',include('Altec.urls'))
+    path('Altec/',include('Altec.urls')),
+    path('',views.al_inicio)
 ]

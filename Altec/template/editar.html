@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<!-- ========== Start Section ========== -->
+
+<!-- ========== puede ser el methodo POST o GET. El POST posee más seguridad mientras que el GET se visualiza en la barra de navegación.========== -->
+<form action="" method="POST">
+    {%csrf_token%}
+    {{ form }}
+</br>
+<input type="submit" value="Update" class="btn btn-secondary">
+</form>
+
+{% endblock %}

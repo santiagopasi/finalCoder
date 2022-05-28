@@ -5,12 +5,13 @@ class Empleados(models.Model):
     rol = models.CharField(max_length=40)
     nombre = models.CharField(max_length=40)
     sueldo=models.IntegerField()
-    comision = models.IntegerField()
+    comision = models.FloatField()
     acargo= models.IntegerField()
 
     def __str__(self):
         return f'Este empleado es un ' +self.rol + ' ,se llama ' + self.nombre + ', tiene un sueldo de ' + str(self.sueldo) + ', tiene una comisión porcentual de '+str(self.comision)+' y tiene ' + str(self.acargo )+ ' personas a cargo.'
         
+    
 class TrabajosHechos(models.Model):
     direccion = models.CharField(max_length=50)
     cobrado = models.IntegerField()

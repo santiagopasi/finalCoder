@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render,redirect
 from Altec.models import *
-from Altec.forms import *
+from Altec.forms import EditarEmpleados,CrearPresupuestos
 import random
 
 
@@ -92,21 +93,29 @@ def lista_empleados(request):
     juan=Empleados(nombre='Juan',rol=roles[random.randint(0,3)],sueldo=random.randint(80000,300000),comision=random.random(),acargo=random.randint(0,4))
     josefina=Empleados(nombre='Josefina',rol=roles[random.randint(0,3)],sueldo=random.randint(80000,300000),comision=random.random(),acargo=random.randint(0,4))
 
-    santiago.save()
-    julian.save()
-    daniel.save()
-    lucas.save()
-    rosa.save()
-    eugenia.save()
-    celeste.save()
-    enrique.save()
-    alfonso.save()
-    roco.save()
-    jose.save()
-    javier.save()
-    juan.save()
-    josefina.save()
-
-    empleados=Empleados.objects.all()
-        
+    lista_de_empleados=['Santiago','Julian','Daniel','Lucas','Rosa','Eugenia','Celeste','Enrique','Alfonso','Roco','Jose','Javier','Juan','Josefina']
+    
+   
     return render(request,'empleados.html',{'empleados':empleados})
+    
+def editar_empleados(request,empleados_id):
+    empleados = Empleados.objects.get(pk=empleados_id)
+    #se le pone instance, para que vengan compleados los campos de esa instancia de Empleados.
+    form = EditarEmpleados(request.POST or None, instance=empleados)
+    if form.is_valid():
+        form.save()
+        return redirect('empleados')
+
+    return render(request,'editar.html',{'empleados':empleados,'form':form})
+
+def borrar_empleados(request,empleados_id):
+    empleados = Empleados.objects.get(pk=empleados_id)
+    empleados.delete()
+
+
+    return render(request,'borrar_empleado.html')
+
+    
+    
+        
+    
