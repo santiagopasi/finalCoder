@@ -6,11 +6,11 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Inicio</title>
+        <meta name="description" content="Web de Altec" />
+        <meta name="author" content="Santiago Pasi Arias" />
+        <title>Web de Altec Cerramientos</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{%static 'AppCoder/assets/favicon.ico' %}" />
+        <link rel="icon" type="image/x-icon" href="{%static 'Altec/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -21,15 +21,16 @@
 
     </head>
     <body>
+        
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>´
-                <a class="navbar-brand" href="#">Empleados</a>
-                <a class="navbar-brand" href="#">Cursos</a>
-                <a class="navbar-brand" href="#">Estudiantes</a>
-                <a class="navbar-brand" href="#">Entregables</a>
-                <a class="btn btn-primary" href="#">INICIAR</a>
+                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'crearPresupuestos' %}">Crear Presupuesto</a>
+                <a class="navbar-brand" href="{% url 'buscadorPresupuestos' %}">Buscar Presupuestos</a>
+                <a class="navbar-brand" href="{% url 'borrarPresupuesto' %}">Borrar Presupuestos</a>
+                <a class="navbar-brand" href="{% url 'empleados' %}">Empleados</a>
+                
             </div>
         </nav>
 
@@ -41,7 +42,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Nuestra web Intermedia de Django - CoderHouse</h1>
+                            <h1 class="mb-5">Empresa de contrucción Altec - Final de Django en CoderHouse</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -57,13 +58,13 @@
             </div>
         </header>
        
-        <h1>LA CUCARACHA LA CUCA LA CUCA</h1>
+        
 
         <!-- Esto es lo que va a cambiar-->
 
-{% block content %}
+                    {% block content %}
 
-{% endblock %}
+                    {% endblock content %}
 
 
         

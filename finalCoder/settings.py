@@ -55,7 +55,7 @@ ROOT_URLCONF = 'finalCoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/merce/Desktop/Santi/Python/archivos/finalCoder/finalCoder/REPO/Altec/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

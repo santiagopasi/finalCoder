@@ -31,10 +31,13 @@ class Presupuestos(models.Model):
         quinchos='Quinchos'
         techos='Techos'
         
-
+    
     tipo_trabajo = models.CharField(choices= TiposTrabajo.choices, max_length=40)
 
-    precio=models.IntegerField(blank=True)
+    precio=models.FloatField(null=True)
+
+    def __str__(self):
+        return 'El presupuesto para una superficie de ' + str(self.superficie) + ' m^2, para el tipo de trabajo ' + self.tipo_trabajo + ' es de ' + str(self.precio) + ' pesos.'
 
 
 

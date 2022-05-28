@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <table class="table">
+        
+        
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Sueldo ($)</th>
+                    
+                   
+                   <!-- ==========  no se como hacer para que se muestren decimales en la comision ========== -->
+                    <th type="number" onchange="setTwoNumberDecimal" min="0" max="10" step="0.10">Comisión ($)</th>
+                    <th>Gente a cargo</th>
+                </tr>
+            </thead>
+            {%for i in empleados%}
+            <tbody>
+                <tr>
+                    
+                    <td>{{i.nombre}}</td>
+                    <td>{{i.rol}}</td>
+                    <td> {{i.sueldo}}</td>
+                    <td> {{i.comision}}</td>
+                    <td> {{i.acargo}}</td>
+                </tr>
+                
+            </tbody>
+           
+           {%endfor%}
+        </table>
+
+
+
+{% endblock %}

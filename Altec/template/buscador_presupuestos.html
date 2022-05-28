@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    
+
+
+<!-- ========Aqui el buscador======= -->
+
+    
+    <form action="buscadorPresupuestos" method="POST"  style="text-align: center;">
+        {%csrf_token%}
+        {%csrf_token%}
+        <p>Superficie</p>
+        <input type="number" name="superficie" >
+        <p>Tipo de trabajo</p>
+        <input type="text" list="Tipos de trabajo" name="tipo_trabajo">
+        <datalist>
+            <option value="Cerramientos">
+            <option value="Piletas">
+            <option value="Quinchos">
+            <option value="Techos"> 
+        </datalist>
+        <p>
+            <input type="submit" value="Buscar">
+        </p>
+    </form>
+        
+   
+        
+        <table class="table">
+        
+        {%for i in superficie_busqueda%}
+            <thead>
+                <tr>
+                    <th>Superficie (m2)</th>
+                    <th>Tipo de trabajo</th>
+                    <th>Precio ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td>{{i.superficie}}</td>
+                    <td>{{i.tipo_trabajo}}</td>
+                    <td> {{i.precio}}</td>
+                </tr>
+                
+            </tbody>
+           
+           {%endfor%}
+        </table>
+        
+        
+   
+            
+            <table class="table">
+            
+            {%for i in tipo_trabajo_busqueda%}
+            <thead>
+                <tr>
+                    <th>Superficie (m2)</th>
+                    <th>Tipo de trabajo</th>
+                    <th>Precio ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td>{{i.superficie}}</td>
+                    <td>{{i.tipo_trabajo}}</td>
+                    <td> {{i.precio}}</td>
+                </tr>
+                
+            </tbody>
+           
+            {%endfor%}
+            </table>
+            
+            
+
+    
+           
+    
+
+<!-- ========Aqui la tabla con todos los presupuestos======= -->
+    
+        <table class="table">
+            {%for i in elementos%}
+            <thead>
+                <tr>
+                    <th>Superficie (m2)</th>
+                    <th>Tipo de trabajo</th>
+                    <th>Precio ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td>{{i.superficie}}</td>
+                    <td>{{i.tipo_trabajo}}</td>
+                    <td> {{i.precio}}</td>
+                </tr>
+                
+            </tbody>
+            {%endfor%}
+        </table>
+  
+    
+
+
+{% endblock %}
