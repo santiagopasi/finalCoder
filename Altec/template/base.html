@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{%static 'Altec/css/styles.css' %}" rel="stylesheet" />
-
+        
 
     </head>
     <body>
@@ -28,8 +28,21 @@
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'crearPresupuestos' %}">Crear Presupuesto</a>
                 <a class="navbar-brand" href="{% url 'buscadorPresupuestos' %}">Buscar Presupuestos</a>
-                <a class="navbar-brand" href="{% url 'borrarPresupuesto' %}">Borrar Presupuestos</a>
-                <a class="navbar-brand" href="{% url 'empleados' %}">Empleados</a>
+                <a class="navbar-brand" href="{% url 'contacto' %}">Contacto</a>
+                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                      Empleados
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="{% url 'empleados' %}">
+                      <li ><button class="dropdown-item" type="button" >Lista de Empleados</button></li>
+                        </a>
+                        <a href="{% url 'add-empleados' %}">
+                      <li ><button class="dropdown-item" type="button" >Añadir Empleados</button></li>
+                        </a>
+                    </ul>
+                  </div>
                 
             </div>
         </nav>
@@ -41,8 +54,56 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
+                            
                             <!-- Page heading-->
                             <h1 class="mb-5">Empresa de contrucción Altec - Final de Django en CoderHouse</h1>
+                            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                                <div class="carousel-indicators">
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img src="{%static 'Altec/assets/img/cerramiento.jpg'%}" class="d-block w-100" alt="..." style="height: 400px;width:400px ">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>Cerramiento</h5>
+                                      <p>Cerramiento realizado por Altec</p>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{%static 'Altec/assets/img/pileta.jpg'%}" class="d-block w-100" alt="..." style="height: 400px;width:400px ">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>Pileta</h5>
+                                      <p>Pileta realizada por Altec</p>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{%static 'Altec/assets/img/quincho.jpg'%}" class="d-block w-100" alt="..." style="height: 400px;width:400px ">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>Quincho</h5>
+                                      <p>Quincho realizado por Altec</p>
+                                    </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img src="{%static 'Altec/assets/img/techo.jpg'%}" class="d-block w-100" alt="..." style="height: 400px;width:400px ">
+                                    <div class="carousel-caption d-none d-md-block">
+                                      <h5>Techo</h5>
+                                      <p>Techo realizado por Altec</p>
+                                    </div></div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Siguiente</span>
+                                </button>
+                              </div>
+                            
+                            
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -75,9 +136,8 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">Ayuda</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
+                            
+                            <li class="list-inline-item"><a href="{%url 'contacto'%}">Contacto</a></li>
                       
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Curso de Python - CoderHouse.</p>

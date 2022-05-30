@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin,redirects
 from django.urls import path, include
 from finalCoder import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Altec/',include('Altec.urls')),
     path('',views.al_inicio)
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

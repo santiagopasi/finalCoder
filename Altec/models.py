@@ -7,6 +7,7 @@ class Empleados(models.Model):
     sueldo=models.IntegerField()
     comision = models.FloatField()
     acargo= models.IntegerField()
+    profile_pic=models.ImageField(upload_to='profile_pics',blank=True,null=True)
 
     def __str__(self):
         return f'Este empleado es un ' +self.rol + ' ,se llama ' + self.nombre + ', tiene un sueldo de ' + str(self.sueldo) + ', tiene una comisión porcentual de '+str(self.comision)+' y tiene ' + str(self.acargo )+ ' personas a cargo.'

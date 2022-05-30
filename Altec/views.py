@@ -61,22 +61,32 @@ def buscador_presupuestos(request):
         return render(request,'buscador_presupuestos.html',{'elementos':elementos})
     
 
-def borrar_presupuestos(request):
-    elementos=Presupuestos.objects.all()
+def borrar_presupuestos(request,presupuesto_id):
+    
+    presupuesto=Presupuestos.objects.get(pk=presupuesto_id)
 
-    if request.POST.get('superficie',False):
-            presupuesto = Presupuestos(request.POST)
+    presupuesto.delete()
+    return render(request,'borrar_presupuesto.html')
 
-            if presupuesto.is_valid():
-                presupuesto.delete()
-                return render(request, 'borrar_exito.html')
+def add_empleados(request):
 
+    form = EditarEmpleados(request.POST or None)
+    if form.is_valid():
+        #solo se crean empleados con distinto nombre
+        empleado, created=Empleados.objects.get_or_create(
+                                                            nombre=request.POST.get('nombre',False),
+                                                            defaults={'rol':request.POST.get('rol',False),'sueldo':request.POST.get('sueldo',False),'comision':request.POST.get('comision',False),'acargo':request.POST.get('acargo',False)})
+        
+        print(created)
+        
+        return render(request,'add_empleados.html',{'form':form})
     else:
-        return render(request,'buscador_presupuestos.html')
+        return render(request,'add_empleados.html',{'form':form})
 
 def lista_empleados(request):
     
-    
+    """""
+    esta era la manera antigua que tenia de crear empleados de manera aleatoria. Ahora tengo una funcion para añadir uno por uno sin repetir.
     roles=['Administrador','Vendedor','Cajero','Gerente']
     santiago=Empleados(nombre='Santiago',rol="CEO",sueldo=500000,comision=0,acargo=13)
     julian=Empleados(nombre='Julian',rol=roles[random.randint(0,3)],sueldo=random.randint(80000,300000),comision=random.random(),acargo=random.randint(0,4))
@@ -93,8 +103,10 @@ def lista_empleados(request):
     juan=Empleados(nombre='Juan',rol=roles[random.randint(0,3)],sueldo=random.randint(80000,300000),comision=random.random(),acargo=random.randint(0,4))
     josefina=Empleados(nombre='Josefina',rol=roles[random.randint(0,3)],sueldo=random.randint(80000,300000),comision=random.random(),acargo=random.randint(0,4))
 
+
     lista_de_empleados=['Santiago','Julian','Daniel','Lucas','Rosa','Eugenia','Celeste','Enrique','Alfonso','Roco','Jose','Javier','Juan','Josefina']
-    
+    """
+    empleados=Empleados.objects.all()
    
     return render(request,'empleados.html',{'empleados':empleados})
     
@@ -114,6 +126,10 @@ def borrar_empleados(request,empleados_id):
 
 
     return render(request,'borrar_empleado.html')
+
+def contacto(request):
+
+    return render(request,'contacto.html')
 
     
     

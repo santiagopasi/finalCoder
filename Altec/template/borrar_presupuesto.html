@@ -3,43 +3,11 @@
 {% load static %}
 
 {% block content %}
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <form action="borrar_presupuestos" method="POST">
-        {%csrf_token%}
-    <p>
-        Superficie(m2):
-    </p>
-    
-    
-    <!-- ========== se le pone nombre al input para tomarlo desde la función crearPresupuesto en views.py
-        y se le pone required para que no envien campo vacio ========== -->
-    <input type="number" name="superficie" required >
-    <p>
-        Tipo de trabajo:
-    </p>
-   
-    
-    <!-- NO SÉ POR QUÉ APARECE UN 11 EN LA LISTA! -->
-    <input type="text" list="Tipos de trabajo" name="tipo_trabajo" required>
-    <datalist>
-    <option value="Cerramientos">
-    <option value="Piletas">
-    <option value="Quinchos">
-    <option value="Techos">
-    
-    </datalist>
 
-    
-  
-    <!-- ========== Start Section ========== -->
-    
-    <!-- ========== boton de tipo submit es para enviar información ========== -->
-    <input type="submit" value="Borrar">
+<h1 style="text-decoration-color: rgb(7, 231, 108)">
+    El presupuesto se ha eliminado correctamente
 
-    <p>
-
-    </form>
-
+</h1>
 
 
 {% endblock %}
