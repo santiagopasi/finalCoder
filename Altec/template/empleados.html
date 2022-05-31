@@ -26,10 +26,16 @@
                     <!-- ==========  no se como hacer para que se muestren decimales en la comision ========== -->
                     <td type="number" onchange="setTwoNumberDecimal" min="0" max="3" step="0.10"> {{i.comision}}</td>
                     <td> {{i.acargo}}</td>
-                    <td> {{i.acargo}}</td>
+                    
                     
                     <!-- ========== no me muestra las imagenes del empleado. Las imagenes me las está guardando en el static del proyecto y no en la de la app ========== -->
-                    <td> {{i.profile_pic.url}}</td>
+                    <td> 
+                        {% if i.profile_pic %}
+                        <img src="{{i.profile_pic.url}}" alt="" style="height: 300px; width: 300px">
+                        {% endif %} 
+                        
+                        
+                    </td>
                     <td align="right">
                         <a href="{% url 'editar-empleado' i.id %}" class="btn btn-primary">Editar</a>
                         <a href="{% url 'borrar-empleado' i.id %}" class="btn btn-danger">Eliminar</a>

@@ -8,7 +8,7 @@
 <!-- ========== Start Section ========== -->
 
 <!-- ========== puede ser el methodo POST o GET. El POST posee más seguridad mientras que el GET se visualiza en la barra de navegación.========== -->
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
     {{ form }}
 </br>

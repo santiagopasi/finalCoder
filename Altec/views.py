@@ -114,9 +114,13 @@ def editar_empleados(request,empleados_id):
     empleados = Empleados.objects.get(pk=empleados_id)
     #se le pone instance, para que vengan compleados los campos de esa instancia de Empleados.
     form = EditarEmpleados(request.POST or None, instance=empleados)
-    if form.is_valid():
-        form.save()
-        return redirect('empleados')
+    if request.method == 'POST':
+
+        form = EditarEmpleados(request.POST or None, request.FILES or None, instance=empleados)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return redirect('empleados')
 
     return render(request,'editar.html',{'empleados':empleados,'form':form})
 

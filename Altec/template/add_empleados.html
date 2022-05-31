@@ -7,10 +7,12 @@
 
 <!-- ========== Start Section ========== -->
 
-<!-- ========== puede ser el methodo POST o GET. El POST posee más seguridad mientras que el GET se visualiza en la barra de navegación.========== -->
-<form action="add_empleados" method="POST">
+<!-- ========== puede ser el methodo POST o GET. El POST posee más seguridad mientras que el GET se visualiza en la barra de navegación.
+    se le agrega "multipart/form-data" para que lea las imagenes========== -->
+<form method="POST" enctype="multipart/form-data">
     {%csrf_token%}
-    {{ form }}
+    {{ form.as_p }}
+   
 </br>
 <input type="submit" value="Update" class="btn btn-secondary">
 </form>

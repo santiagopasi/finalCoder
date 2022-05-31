@@ -96,7 +96,9 @@
 <!-- ========Aqui la tabla con todos los presupuestos======= -->
     
         <table class="table">
+            
             {%for i in elementos%}
+            
             <thead>
                 <tr>
                     <th>Superficie (m2)</th>
@@ -105,7 +107,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr >
                     
                     <td>{{i.superficie}}</td>
                     <td>{{i.tipo_trabajo}}</td>
