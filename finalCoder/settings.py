@@ -17,6 +17,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -53,10 +55,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'finalCoder.urls'
 
+
+dir = Path.cwd()
+temp_dir = 'Altec/template'
+
+join = os.path.join(dir, temp_dir).replace('\\', '/')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/merce/Desktop/Santi/Python/archivos/finalCoder/finalCoder/REPO/Altec/template'],
+        'DIRS': [str(join)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
